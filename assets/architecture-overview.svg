@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+    <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <rect width="1000" height="620" fill="url(#bg)" rx="16" />
+
+  <!-- Header -->
+  <text x="500" y="45" text-anchor="middle" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">SYSTEM ARCHITECTURE</text>
+  <text x="500" y="78" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="26" font-weight="800">The 3 Pillars of Modern Agentic Engineering</text>
+  <text x="500" y="104" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">Unified interaction diagram between the Agent, Context, Workflow, and Browser Automation</text>
+
+  <!-- Central Agent Core -->
+  <g transform="translate(340, 240)" filter="url(#shadow)">
+    <rect width="320" height="150" rx="20" fill="url(#coreGrad)" stroke="#38bdf8" stroke-width="2" />
+    <circle cx="160" cy="40" r="22" fill="#0284c7" />
+    <text x="160" y="47" text-anchor="middle" font-size="20">🤖</text>
+    <text x="160" y="82" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="800">Autonomous Coding Agent</text>
+    <text x="160" y="105" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">Cursor • Claude Code • Windsurf • Antigravity</text>
+    <rect x="70" y="118" width="180" height="20" rx="10" fill="#0369a1" fill-opacity="0.3" />
+    <text x="160" y="132" text-anchor="middle" fill="#7dd3fc" font-family="ui-monospace, monospace" font-size="10.5">MCP Client + Skill Host</text>
+  </g>
+
+  <!-- Pillar 1: Context Layer (Left) -->
+  <g transform="translate(40, 160)" filter="url(#shadow)">
+    <rect width="250" height="310" rx="16" fill="#061f18" stroke="#10b981" stroke-width="1.8" />
+    <rect x="16" y="16" width="40" height="40" rx="10" fill="#064e3b" />
+    <text x="36" y="42" text-anchor="middle" font-size="20">⚡</text>
+    <text x="68" y="32" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">GROUNDING LAYER</text>
+    <text x="68" y="50" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Context7</text>
+    
+    <line x1="16" y1="72" x2="234" y2="72" stroke="#065f46" stroke-width="1" />
+    
+    <text x="16" y="98" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Protocol: CLI &amp; MCP</text>
+    <text x="16" y="120" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• Upstash Live Indexing</text>
+    <text x="16" y="140" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• Zero API Hallucination</text>
+    <text x="16" y="160" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• Version-pinned Docs</text>
+    <text x="16" y="180" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• Real-time Doc Search</text>
+
+    <!-- Code Block -->
+    <rect x="16" y="210" width="218" height="50" rx="8" fill="#02140e" stroke="#047857" stroke-width="1" />
+    <text x="24" y="230" fill="#6ee7b7" font-family="ui-monospace, monospace" font-size="10.5">npx ctx7 setup</text>
+    <text x="24" y="248" fill="#94a3b8" font-family="ui-monospace, monospace" font-size="9.5">@upstash/context7-mcp</text>
+
+    <!-- Benefit Tag -->
+    <rect x="16" y="272" width="218" height="24" rx="6" fill="#064e3b" />
+    <text x="125" y="288" text-anchor="middle" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Reliable Context Ingestion</text>
+  </g>
+
+  <!-- Pillar 2: Workflow & Disciplined Skills (Top) -->
+  <g transform="translate(320, 120)" filter="url(#shadow)">
+    <!-- connecting arrow to Agent -->
+  </g>
+
+  <!-- Pillar 2 Card (Top) -->
+  <g transform="translate(290, 420)" filter="url(#shadow)">
+    <rect width="420" height="170" rx="16" fill="#201305" stroke="#f59e0b" stroke-width="1.8" />
+    <rect x="16" y="16" width="40" height="40" rx="10" fill="#451a03" />
+    <text x="36" y="42" text-anchor="middle" font-size="20">🧠</text>
+    <text x="68" y="32" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">WORKFLOW &amp; DISCIPLINE</text>
+    <text x="68" y="50" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Matt Pocock's AI Skills</text>
+
+    <line x1="16" y1="68" x2="404" y2="68" stroke="#78350f" stroke-width="1" />
+
+    <g transform="translate(16, 82)">
+      <rect x="0" y="0" width="72" height="24" rx="4" fill="#3b1c06" />
+      <text x="36" y="16" text-anchor="middle" fill="#fde68a" font-family="ui-monospace, monospace" font-size="10">/grill</text>
+
+      <rect x="78" y="0" width="76" height="24" rx="4" fill="#3b1c06" />
+      <text x="116" y="16" text-anchor="middle" fill="#fde68a" font-family="ui-monospace, monospace" font-size="10">/to-spec</text>
+
+      <rect x="160" y="0" width="90" height="24" rx="4" fill="#3b1c06" />
+      <text x="205" y="16" text-anchor="middle" fill="#fde68a" font-family="ui-monospace, monospace" font-size="10">/implement</text>
+
+      <rect x="256" y="0" width="60" height="24" rx="4" fill="#3b1c06" />
+      <text x="286" y="16" text-anchor="middle" fill="#fde68a" font-family="ui-monospace, monospace" font-size="10">/tdd</text>
+
+      <rect x="322" y="0" width="80" height="24" rx="4" fill="#3b1c06" />
+      <text x="362" y="16" text-anchor="middle" fill="#fde68a" font-family="ui-monospace, monospace" font-size="10">/wayfinder</text>
+    </g>
+
+    <text x="16" y="130" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">
+      Structured requirements, architectural alignment, and test-first cycles
+    </text>
+    <text x="16" y="150" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11">
+      npx skills@latest add mattpocock/skills
+    </text>
+  </g>
+
+  <!-- Pillar 3: Playwright MCP (Right) -->
+  <g transform="translate(710, 160)" filter="url(#shadow)">
+    <rect width="250" height="310" rx="16" fill="#1b0c2e" stroke="#a855f7" stroke-width="1.8" />
+    <rect x="16" y="16" width="40" height="40" rx="10" fill="#3b0764" />
+    <text x="36" y="42" text-anchor="middle" font-size="20">🎭</text>
+    <text x="68" y="32" fill="#c084fc" font-family="system-ui, sans-serif" font-size="11" font-weight="700">AUTOMATION &amp; QA</text>
+    <text x="68" y="50" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="800">Playwright MCP</text>
+    
+    <line x1="16" y1="72" x2="234" y2="72" stroke="#581c87" stroke-width="1" />
+    
+    <text x="16" y="98" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Protocol: Model Context Protocol</text>
+    <text x="16" y="120" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• Accessibility Tree Parser</text>
+    <text x="16" y="140" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• Deterministic Element Refs</text>
+    <text x="16" y="160" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• No Vision Model Waste</text>
+    <text x="16" y="180" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">• E2E Verification in Agent Loop</text>
+
+    <!-- Code Block -->
+    <rect x="16" y="210" width="218" height="50" rx="8" fill="#120521" stroke="#7e22ce" stroke-width="1" />
+    <text x="24" y="230" fill="#d8b4fe" font-family="ui-monospace, monospace" font-size="10.5">npx @playwright/mcp</text>
+    <text x="24" y="248" fill="#94a3b8" font-family="ui-monospace, monospace" font-size="9.5">@playwright/mcp@latest</text>
+
+    <!-- Benefit Tag -->
+    <rect x="16" y="272" width="218" height="24" rx="6" fill="#3b0764" />
+    <text x="125" y="288" text-anchor="middle" fill="#e9d5ff" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Deterministic QA Verification</text>
+  </g>
+
+  <!-- Connectors -->
+  <!-- Context7 to Agent -->
+  <path d="M 290 315 L 340 315" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4 4" />
+  <polygon points="338,310 348,315 338,320" fill="#10b981" />
+
+  <!-- Agent to Playwright -->
+  <path d="M 660 315 L 710 315" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4 4" />
+  <polygon points="702,310 712,315 702,320" fill="#a855f7" />
+
+  <!-- Agent to Skills -->
+  <path d="M 500 390 L 500 420" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4 4" />
+  <polygon points="495,412 500,422 505,412" fill="#f59e0b" />
+
+</svg>

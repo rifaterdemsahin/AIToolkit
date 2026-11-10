@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgSkills" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140f08" />
+      <stop offset="100%" stop-color="#080603" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="450" fill="url(#bgSkills)" rx="16" />
+
+  <!-- Header -->
+  <text x="500" y="42" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">MATT POCOCK AI SKILLS</text>
+  <text x="500" y="74" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="24" font-weight="800">5 Essential Commands to Prevent Code Rot</text>
+  <text x="500" y="98" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13.5">Structured human-in-the-loop workflows designed for modern AI coding agents</text>
+
+  <!-- Skill 1 -->
+  <g transform="translate(30, 130)">
+    <rect width="175" height="270" rx="12" fill="#241505" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="87" cy="36" r="18" fill="#451a03" />
+    <text x="87" y="42" text-anchor="middle" font-size="16">🔥</text>
+    <text x="87" y="76" text-anchor="middle" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11.5" font-weight="700">/grill-with-docs</text>
+    <text x="87" y="100" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">The Interrogation</text>
+    
+    <line x1="16" y1="114" x2="159" y2="114" stroke="#78350f" stroke-width="1" />
+    
+    <text x="16" y="136" fill="#fde68a" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Goal:</text>
+    <text x="16" y="154" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">Grills the user with</text>
+    <text x="16" y="170" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">targeted questions</text>
+    <text x="16" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">before writing code.</text>
+    
+    <rect x="12" y="215" width="151" height="42" rx="6" fill="#381a04" />
+    <text x="87" y="233" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Resolves edge cases</text>
+    <text x="87" y="247" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">&amp; aligns taxonomy</text>
+  </g>
+
+  <!-- Skill 2 -->
+  <g transform="translate(225, 130)">
+    <rect width="175" height="270" rx="12" fill="#241505" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="87" cy="36" r="18" fill="#451a03" />
+    <text x="87" y="42" text-anchor="middle" font-size="16">📝</text>
+    <text x="87" y="76" text-anchor="middle" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11.5" font-weight="700">/to-spec</text>
+    <text x="87" y="100" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Formal Spec</text>
+
+    <line x1="16" y1="114" x2="159" y2="114" stroke="#78350f" stroke-width="1" />
+
+    <text x="16" y="136" fill="#fde68a" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Goal:</text>
+    <text x="16" y="154" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">Translates grilling</text>
+    <text x="16" y="170" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">answers into an</text>
+    <text x="16" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">unambiguous spec.</text>
+
+    <rect x="12" y="215" width="151" height="42" rx="6" fill="#381a04" />
+    <text x="87" y="233" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Data model &amp;</text>
+    <text x="87" y="247" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">acceptance criteria</text>
+  </g>
+
+  <!-- Skill 3 -->
+  <g transform="translate(420, 130)">
+    <rect width="175" height="270" rx="12" fill="#241505" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="87" cy="36" r="18" fill="#451a03" />
+    <text x="87" y="42" text-anchor="middle" font-size="16">🧪</text>
+    <text x="87" y="76" text-anchor="middle" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11.5" font-weight="700">/tdd</text>
+    <text x="87" y="100" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Test-First Guard</text>
+
+    <line x1="16" y1="114" x2="159" y2="114" stroke="#78350f" stroke-width="1" />
+
+    <text x="16" y="136" fill="#fde68a" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Goal:</text>
+    <text x="16" y="154" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">Writes failing unit</text>
+    <text x="16" y="170" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">and contract tests</text>
+    <text x="16" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">before any logic.</text>
+
+    <rect x="12" y="215" width="151" height="42" rx="6" fill="#381a04" />
+    <text x="87" y="233" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Locks requirements</text>
+    <text x="87" y="247" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">into green builds</text>
+  </g>
+
+  <!-- Skill 4 -->
+  <g transform="translate(615, 130)">
+    <rect width="175" height="270" rx="12" fill="#241505" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="87" cy="36" r="18" fill="#451a03" />
+    <text x="87" y="42" text-anchor="middle" font-size="16">🚀</text>
+    <text x="87" y="76" text-anchor="middle" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11.5" font-weight="700">/implement</text>
+    <text x="87" y="100" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Surgical Execution</text>
+
+    <line x1="16" y1="114" x2="159" y2="114" stroke="#78350f" stroke-width="1" />
+
+    <text x="16" y="136" fill="#fde68a" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Goal:</text>
+    <text x="16" y="154" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">Implements minimal</text>
+    <text x="16" y="170" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">clean diffs to make</text>
+    <text x="16" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">tests turn green.</text>
+
+    <rect x="12" y="215" width="151" height="42" rx="6" fill="#381a04" />
+    <text x="87" y="233" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Tracer bullet steps</text>
+    <text x="87" y="247" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">No scope creep</text>
+  </g>
+
+  <!-- Skill 5 -->
+  <g transform="translate(810, 130)">
+    <rect width="160" height="270" rx="12" fill="#241505" stroke="#f59e0b" stroke-width="1.5" />
+    <circle cx="80" cy="36" r="18" fill="#451a03" />
+    <text x="80" y="42" text-anchor="middle" font-size="16">🧭</text>
+    <text x="80" y="76" text-anchor="middle" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="11.5" font-weight="700">/wayfinder</text>
+    <text x="80" y="100" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Map &amp; Orient</text>
+
+    <line x1="16" y1="114" x2="144" y2="114" stroke="#78350f" stroke-width="1" />
+
+    <text x="16" y="136" fill="#fde68a" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Goal:</text>
+    <text x="16" y="154" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">Explores code,</text>
+    <text x="16" y="170" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">locates entrypoints,</text>
+    <text x="16" y="186" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="10.5">plans next chunk.</text>
+
+    <rect x="12" y="215" width="136" height="42" rx="6" fill="#381a04" />
+    <text x="80" y="233" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Continuous context</text>
+    <text x="80" y="247" text-anchor="middle" fill="#fef3c7" font-family="system-ui, sans-serif" font-size="10" font-weight="600">navigation</text>
+  </g>
+</svg>

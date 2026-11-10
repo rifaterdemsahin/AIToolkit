@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070913" />
+      <stop offset="50%" stop-color="#0c1222" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="35%" stop-color="#818cf8" />
+      <stop offset="70%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.03" />
+    </linearGradient>
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.03" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="35" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="420" fill="url(#bgGrad)" />
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="200" cy="100" r="140" fill="#0284c7" opacity="0.18" filter="url(#glow)" />
+  <circle cx="600" cy="320" r="160" fill="#7c3aed" opacity="0.15" filter="url(#glow)" />
+  <circle cx="1000" cy="120" r="150" fill="#059669" opacity="0.15" filter="url(#glow)" />
+
+  <!-- Grid Overlay lines -->
+  <g stroke="#334155" stroke-opacity="0.18" stroke-width="1">
+    <line x1="0" y1="70" x2="1200" y2="70" />
+    <line x1="0" y1="140" x2="1200" y2="140" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="280" x2="1200" y2="280" />
+    <line x1="0" y1="350" x2="1200" y2="350" />
+    <line x1="150" y1="0" x2="150" y2="420" />
+    <line x1="300" y1="0" x2="300" y2="420" />
+    <line x1="450" y1="0" x2="450" y2="420" />
+    <line x1="600" y1="0" x2="600" y2="420" />
+    <line x1="750" y1="0" x2="750" y2="420" />
+    <line x1="900" y1="0" x2="900" y2="420" />
+    <line x1="1050" y1="0" x2="1050" y2="420" />
+  </g>
+
+  <!-- Badge -->
+  <g transform="translate(470, 32)">
+    <rect x="0" y="0" width="260" height="32" rx="16" fill="#0e2338" stroke="#0284c7" stroke-width="1.2" />
+    <circle cx="18" cy="16" r="5" fill="#38bdf8" />
+    <text x="32" y="21" fill="#7dd3fc" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">MODERN AI TOOLSTACK</text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="105" text-anchor="middle" fill="url(#titleGrad)" font-family="system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">
+    AI ENGINEERING TOOLKIT
+  </text>
+  <text x="600" y="140" text-anchor="middle" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="400">
+    The Deterministic Developer Triad: Grounded Docs • Disciplined Workflows • Semantic Browser Loops
+  </text>
+
+  <!-- 3 Pillars Cards in Banner -->
+  <!-- Pillar 1: Context7 -->
+  <g transform="translate(60, 180)">
+    <rect width="330" height="195" rx="16" fill="url(#cardGrad1)" stroke="#10b981" stroke-opacity="0.4" stroke-width="1.5" />
+    <circle cx="36" cy="36" r="18" fill="#064e3b" stroke="#10b981" stroke-width="1.2" />
+    <text x="36" y="42" text-anchor="middle" font-size="18">⚡</text>
+    <text x="66" y="34" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700">PILLAR 1: CONTEXT LAYER</text>
+    <text x="66" y="52" fill="#ffffff" font-family="system-ui, sans-serif" font-size="17" font-weight="800">Context7 (Upstash)</text>
+    <text x="24" y="92" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5" line-height="1.5">
+      Live framework doc retriever.
+    </text>
+    <text x="24" y="112" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5">
+      Eliminates API hallucinations via
+    </text>
+    <text x="24" y="132" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5">
+      grounded CLI &amp; MCP query feeds.
+    </text>
+    <rect x="24" y="152" width="282" height="28" rx="6" fill="#051b14" stroke="#047857" stroke-width="1" />
+    <text x="36" y="171" fill="#6ee7b7" font-family="ui-monospace, monospace" font-size="11.5">npx ctx7 setup</text>
+  </g>
+
+  <!-- Pillar 2: Matt Pocock Skills -->
+  <g transform="translate(435, 180)">
+    <rect width="330" height="195" rx="16" fill="url(#cardGrad2)" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1.5" />
+    <circle cx="36" cy="36" r="18" fill="#451a03" stroke="#f59e0b" stroke-width="1.2" />
+    <text x="36" y="42" text-anchor="middle" font-size="18">🧠</text>
+    <text x="66" y="34" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="12" font-weight="700">PILLAR 2: DISCIPLINED FLOW</text>
+    <text x="66" y="52" fill="#ffffff" font-family="system-ui, sans-serif" font-size="17" font-weight="800">Matt Pocock Skills</text>
+    <text x="24" y="92" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5">
+      Agentic engineering skills:
+    </text>
+    <text x="24" y="112" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="12">
+      /grill-with-docs • /to-spec
+    </text>
+    <text x="24" y="132" fill="#fbbf24" font-family="ui-monospace, monospace" font-size="12">
+      /implement • /tdd • /wayfinder
+    </text>
+    <rect x="24" y="152" width="282" height="28" rx="6" fill="#241403" stroke="#b45309" stroke-width="1" />
+    <text x="36" y="171" fill="#fde68a" font-family="ui-monospace, monospace" font-size="11.5">npx skills@latest add mattpocock/skills</text>
+  </g>
+
+  <!-- Pillar 3: Playwright MCP -->
+  <g transform="translate(810, 180)">
+    <rect width="330" height="195" rx="16" fill="url(#cardGrad3)" stroke="#a855f7" stroke-opacity="0.4" stroke-width="1.5" />
+    <circle cx="36" cy="36" r="18" fill="#3b0764" stroke="#a855f7" stroke-width="1.2" />
+    <text x="36" y="42" text-anchor="middle" font-size="18">🎭</text>
+    <text x="66" y="34" fill="#c084fc" font-family="system-ui, sans-serif" font-size="12" font-weight="700">PILLAR 3: AUTOMATION &amp; QA</text>
+    <text x="66" y="52" fill="#ffffff" font-family="system-ui, sans-serif" font-size="17" font-weight="800">Playwright MCP</text>
+    <text x="24" y="92" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5">
+      Accessibility-tree web automation.
+    </text>
+    <text x="24" y="112" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5">
+      Deterministic testing loop without
+    </text>
+    <text x="24" y="132" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12.5">
+      expensive screenshot tokens.
+    </text>
+    <rect x="24" y="152" width="282" height="28" rx="6" fill="#1e0b36" stroke="#7e22ce" stroke-width="1" />
+    <text x="36" y="171" fill="#e9d5ff" font-family="ui-monospace, monospace" font-size="11.5">npx @playwright/mcp@latest</text>
+  </g>
+</svg>

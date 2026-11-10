@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgPw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140a20" />
+      <stop offset="100%" stop-color="#090510" />
+    </linearGradient>
+  </defs>
+
+  <rect width="950" height="420" fill="url(#bgPw)" rx="16" />
+
+  <!-- Header -->
+  <text x="475" y="40" text-anchor="middle" fill="#c084fc" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">PLAYWRIGHT MCP DEEP DIVE</text>
+  <text x="475" y="72" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="24" font-weight="800">Accessibility Tree vs. Vision Screenshots</text>
+
+  <!-- Left: Fragile Vision -->
+  <g transform="translate(40, 110)">
+    <rect width="410" height="270" rx="14" fill="#200d14" stroke="#f43f5e" stroke-width="1.5" />
+    <text x="24" y="36" fill="#fb7185" font-family="system-ui, sans-serif" font-size="15" font-weight="800">📸 Vision Model Approach</text>
+    <line x1="24" y1="52" x2="386" y2="52" stroke="#881337" stroke-width="1" />
+
+    <text x="24" y="80" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Takes full-screen PNGs and feeds to Multimodal LLM:</text>
+
+    <rect x="24" y="98" width="362" height="60" rx="8" fill="#14050a" stroke="#9f1239" stroke-width="1" />
+    <text x="36" y="122" fill="#fda4af" font-family="ui-monospace, monospace" font-size="11">tokens: ~1,500 - 3,000 per snapshot</text>
+    <text x="36" y="142" fill="#fb7185" font-family="ui-monospace, monospace" font-size="11">click(x: 482, y: 712) // Fragile to zoom/DPI</text>
+
+    <text x="24" y="184" fill="#fda4af" font-family="system-ui, sans-serif" font-size="11.5">• Consumes massive multimodal context limits</text>
+    <text x="24" y="206" fill="#fda4af" font-family="system-ui, sans-serif" font-size="11.5">• Slow roundtrips (3-8 seconds per screen)</text>
+    <text x="24" y="228" fill="#fda4af" font-family="system-ui, sans-serif" font-size="11.5">• High failure rate when layout shifts or scrolls</text>
+
+    <rect x="24" y="244" width="362" height="22" rx="4" fill="#881337" />
+    <text x="205" y="259" text-anchor="middle" fill="#ffe4e6" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">FLAW: Slow, expensive, non-deterministic</text>
+  </g>
+
+  <!-- Right: Playwright MCP Tree -->
+  <g transform="translate(490, 110)">
+    <rect width="420" height="270" rx="14" fill="#1b0c30" stroke="#a855f7" stroke-width="1.5" />
+    <text x="24" y="36" fill="#c084fc" font-family="system-ui, sans-serif" font-size="15" font-weight="800">⚡ Playwright MCP Accessibility Tree</text>
+    <line x1="24" y1="52" x2="396" y2="52" stroke="#581c87" stroke-width="1" />
+
+    <text x="24" y="80" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Extracts clean semantic ARIA trees with deterministic IDs:</text>
+
+    <rect x="24" y="98" width="372" height="60" rx="8" fill="#10051e" stroke="#7e22ce" stroke-width="1" />
+    <text x="36" y="122" fill="#d8b4fe" font-family="ui-monospace, monospace" font-size="11">[button "Submit"] ref=@e12</text>
+    <text x="36" y="142" fill="#a855f7" font-family="ui-monospace, monospace" font-size="11">playwright_click(element: "@e12") // 100% Deterministic</text>
+
+    <text x="24" y="184" fill="#e9d5ff" font-family="system-ui, sans-serif" font-size="11.5">• Tiny token footprint (~100-250 tokens per view)</text>
+    <text x="24" y="206" fill="#e9d5ff" font-family="system-ui, sans-serif" font-size="11.5">• Millisecond execution speeds directly over Chrome CDP</text>
+    <text x="24" y="228" fill="#e9d5ff" font-family="system-ui, sans-serif" font-size="11.5">• Zero ambiguity: exact accessible name matching</text>
+
+    <rect x="24" y="244" width="372" height="22" rx="4" fill="#581c87" />
+    <text x="210" y="259" text-anchor="middle" fill="#f3e8ff" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">BENEFIT: Fast, cheap, rock-solid agent QA loop</text>
+  </g>
+</svg>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Engineering Toolset & Superpowers</title>
+  <meta name="description" content="A unified modern AI engineering toolstack: Context7 (Upstash), Playwright MCP, and Matt Pocock AI Skills." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              purple: '#a855f7',
+              cyan: '#06b6d4',
+              sky: '#0284c7',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #080c16; color: #f3f4f6; }
+    .glass {
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.7) 100%);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glow-cyan:hover { box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35); }
+    .glow-emerald:hover { box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35); }
+    .glow-purple:hover { box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.35); }
+    .glow-amber:hover { box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35); }
+  </style>
+</head>
+<body class="min-h-screen font-sans selection:bg-cyan-500 selection:text-white flex flex-col justify-between">
+
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-5 py-3 rounded-xl bg-slate-900/95 border border-emerald-500/50 text-white shadow-2xl backdrop-blur-md">
+    <span class="text-emerald-400 text-lg">✅</span>
+    <span id="toast-text" class="text-sm font-medium">Copied to clipboard!</span>
+  </div>
+
+  <div class="max-w-7xl mx-auto p-6 md:p-12 w-full space-y-12">
+
+    <!-- Top Navigation / Repository Status Bar -->
+    <nav class="flex flex-wrap items-center justify-between gap-4 glass px-6 py-3.5 rounded-2xl">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl animate-pulse">⚡</span>
+        <span class="font-extrabold tracking-tight text-white text-lg">AIToolkit <span class="text-xs font-mono font-medium px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800">v1.0.0</span></span>
+      </div>
+      <div class="flex items-center gap-4 text-xs md:text-sm font-medium text-slate-400">
+        <a href="#superpowers" class="hover:text-cyan-400 transition">Superpowers</a>
+        <a href="#diagrams" class="hover:text-cyan-400 transition">Architecture</a>
+        <a href="#cheatsheet" class="hover:text-cyan-400 transition">Cheat Sheet</a>
+        <a href="#mcp-config" class="hover:text-cyan-400 transition">MCP Config</a>
+        <a href="https://github.com/rifaterdemsahin/AIToolkit" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white transition border border-slate-700">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="text-center space-y-4 pt-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold tracking-wider uppercase text-cyan-300 bg-cyan-950/70 rounded-full border border-cyan-800 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+        AI Superpowers Activated &bull; Cursor &bull; Claude Code &bull; Windsurf &bull; Antigravity
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+        Agentic Engineering Toolstack
+      </h1>
+      <p class="text-slate-400 max-w-3xl mx-auto text-sm md:text-lg leading-relaxed">
+        A battle-tested triad integrating <strong class="text-emerald-400">grounded documentation</strong>, <strong class="text-purple-400">deterministic browser verification</strong>, and <strong class="text-amber-400">structured engineer workflows</strong> to eradicate AI code rot.
+      </p>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <button onclick="copyCommand('npx ctx7 setup', this)" class="group px-4 py-2 rounded-xl glass hover:border-emerald-500/60 transition text-xs font-mono text-emerald-300 flex items-center gap-2">
+          <span>⚡ npx ctx7 setup</span>
+          <span class="text-slate-500 group-hover:text-emerald-400 text-xs">📋</span>
+        </button>
+        <button onclick="copyCommand('npx @playwright/mcp@latest', this)" class="group px-4 py-2 rounded-xl glass hover:border-purple-500/60 transition text-xs font-mono text-purple-300 flex items-center gap-2">
+          <span>🎭 npx @playwright/mcp@latest</span>
+          <span class="text-slate-500 group-hover:text-purple-400 text-xs">📋</span>
+        </button>
+        <button onclick="copyCommand('npx skills@latest add mattpocock/skills', this)" class="group px-4 py-2 rounded-xl glass hover:border-amber-500/60 transition text-xs font-mono text-amber-300 flex items-center gap-2">
+          <span>🧠 npx skills@latest add mattpocock/skills</span>
+          <span class="text-slate-500 group-hover:text-amber-400 text-xs">📋</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Superpower Cards Grid -->
+    <main id="superpowers" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- 1. Context7 Card -->
+      <section class="glass-card p-6 md:p-7 rounded-2xl flex flex-col justify-between transition-all duration-300 glow-emerald hover:border-emerald-500/60 group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-semibold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-md border border-emerald-800">Context Layer</span>
+            <span class="text-2xl group-hover:scale-125 transition-transform">⚡</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+            Context7 <span class="text-xs font-normal text-slate-400">(Upstash)</span>
+          </h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5">
+            Grounding API &amp; MCP server providing accurate, version-pinned documentation directly into agent context windows—eliminating outdated or hallucinated APIs forever.
+          </p>
+
+          <!-- Interactive CLI Copy Box -->
+          <div class="relative bg-black/60 p-3.5 rounded-xl border border-slate-800/80 font-mono text-xs text-emerald-300 flex items-center justify-between mb-4 group/box">
+            <code>npx ctx7 setup</code>
+            <button onclick="copyCommand('npx ctx7 setup', this)" class="text-slate-400 hover:text-emerald-300 p-1 rounded transition" title="Copy command">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> Live library indexing &amp; real-time doc search</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> Zero hallucinated third-party SDK calls</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400 font-bold">✔</span> Cursor / Claude Code native integration</li>
+          </ul>
+          <div class="mt-4 pt-3 border-t border-slate-800/50 flex justify-between items-center text-xs text-slate-400">
+            <span>Protocol: CLI &amp; MCP</span>
+            <a href="docs/context7.md" class="text-emerald-400 hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Playwright MCP Card -->
+      <section class="glass-card p-6 md:p-7 rounded-2xl flex flex-col justify-between transition-all duration-300 glow-purple hover:border-purple-500/60 group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-semibold text-purple-400 bg-purple-950/60 px-2.5 py-1 rounded-md border border-purple-800">Automation &amp; QA</span>
+            <span class="text-2xl group-hover:scale-125 transition-transform">🎭</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+            Playwright MCP <span class="text-xs font-normal text-slate-400">(@playwright/mcp)</span>
+          </h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5">
+            Accessibility tree-based browser automation protocol. Enables agents to navigate, test, and verify web apps without costly screenshot models or flaky pixel coordinates.
+          </p>
+
+          <!-- Interactive CLI Copy Box -->
+          <div class="relative bg-black/60 p-3.5 rounded-xl border border-slate-800/80 font-mono text-xs text-purple-300 flex items-center justify-between mb-4 group/box">
+            <code>npx @playwright/mcp@latest</code>
+            <button onclick="copyCommand('npx @playwright/mcp@latest', this)" class="text-slate-400 hover:text-purple-300 p-1 rounded transition" title="Copy command">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><span class="text-purple-400 font-bold">✔</span> Semantic accessibility-ref snapshots (@ref)</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400 font-bold">✔</span> Form filling, auth persistence, clicks</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400 font-bold">✔</span> End-to-end agent verification loops</li>
+          </ul>
+          <div class="mt-4 pt-3 border-t border-slate-800/50 flex justify-between items-center text-xs text-slate-400">
+            <span>Protocol: MCP</span>
+            <a href="docs/playwright-mcp.md" class="text-purple-400 hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Matt Pocock AI Skills Card -->
+      <section class="glass-card p-6 md:p-7 rounded-2xl flex flex-col justify-between transition-all duration-300 glow-amber hover:border-amber-500/60 group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-semibold text-amber-400 bg-amber-950/60 px-2.5 py-1 rounded-md border border-amber-800">Disciplined Flow</span>
+            <span class="text-2xl group-hover:scale-125 transition-transform">🧠</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+            Matt Pocock Skills <span class="text-xs font-normal text-slate-400">(mattpocock/skills)</span>
+          </h2>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5">
+            Structured senior-engineer workflows encoded into agent skills: domain modeling, interview-style grilling, test-driven implementation, and tracer-bullet execution.
+          </p>
+
+          <!-- Interactive CLI Copy Box -->
+          <div class="relative bg-black/60 p-3.5 rounded-xl border border-slate-800/80 font-mono text-xs text-amber-300 flex items-center justify-between mb-4 group/box">
+            <code>npx skills@latest add mattpocock/skills</code>
+            <button onclick="copyCommand('npx skills@latest add mattpocock/skills', this)" class="text-slate-400 hover:text-amber-300 p-1 rounded transition" title="Copy command">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <ul class="text-xs text-slate-300 space-y-2 border-t border-slate-800/80 pt-4">
+            <li class="flex items-center gap-2"><span class="text-amber-400 font-bold">✔</span> <code class="text-amber-200">/grill-with-docs</code>: Specs &amp; glossary</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400 font-bold">✔</span> <code class="text-amber-200">/to-spec</code>: Modular tracer bullets</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400 font-bold">✔</span> <code class="text-amber-200">/tdd</code> &amp; <code class="text-amber-200">/implement</code>: Test-first TDD cycle</li>
+          </ul>
+          <div class="mt-4 pt-3 border-t border-slate-800/50 flex justify-between items-center text-xs text-slate-400">
+            <span>Protocol: Agent Skills</span>
+            <a href="docs/mattpocock-skills.md" class="text-amber-400 hover:underline">Read Guide &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Explainer Diagrams Section -->
+    <section id="diagrams" class="space-y-6">
+      <div class="text-center space-y-2">
+        <h2 class="text-2xl md:text-3xl font-bold text-white">Visual Architecture &amp; Execution Cycles</h2>
+        <p class="text-slate-400 text-sm max-w-2xl mx-auto">Click through the high-resolution architectural visualizers explaining why this stack eliminates hallucinations and code degradation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Diagram 1 -->
+        <div class="glass p-5 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-slate-200 flex items-center gap-2">
+              <span class="text-cyan-400">📐</span> System Architecture &amp; Integration
+            </h3>
+            <a href="assets/architecture-overview.svg" target="_blank" class="text-xs text-cyan-400 hover:underline">Full SVG &rarr;</a>
+          </div>
+          <div class="bg-black/50 p-2 rounded-xl border border-slate-800 overflow-hidden">
+            <img src="assets/architecture-overview.svg" alt="System Architecture Diagram" class="w-full h-auto rounded-lg shadow-md hover:scale-[1.01] transition-transform" />
+          </div>
+        </div>
+
+        <!-- Diagram 2 -->
+        <div class="glass p-5 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-slate-200 flex items-center gap-2">
+              <span class="text-indigo-400">🔄</span> The Continuous Agentic Loop
+            </h3>
+            <a href="assets/agentic-loop.svg" target="_blank" class="text-xs text-indigo-400 hover:underline">Full SVG &rarr;</a>
+          </div>
+          <div class="bg-black/50 p-2 rounded-xl border border-slate-800 overflow-hidden">
+            <img src="assets/agentic-loop.svg" alt="Agentic Loop Diagram" class="w-full h-auto rounded-lg shadow-md hover:scale-[1.01] transition-transform" />
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <!-- Diagram 3: Context7 -->
+        <div class="glass p-5 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-slate-200 flex items-center gap-2">
+              <span class="text-emerald-400">⚡</span> Context7 Grounding vs. Hallucinations
+            </h3>
+            <a href="assets/context7-diagram.svg" target="_blank" class="text-xs text-emerald-400 hover:underline">Full SVG &rarr;</a>
+          </div>
+          <div class="bg-black/50 p-2 rounded-xl border border-slate-800 overflow-hidden">
+            <img src="assets/context7-diagram.svg" alt="Context7 Grounding Comparison" class="w-full h-auto rounded-lg shadow-md hover:scale-[1.01] transition-transform" />
+          </div>
+        </div>
+
+        <!-- Diagram 4: Playwright MCP -->
+        <div class="glass p-5 rounded-2xl space-y-3">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-slate-200 flex items-center gap-2">
+              <span class="text-purple-400">🎭</span> Accessibility Tree vs. Vision Screenshots
+            </h3>
+            <a href="assets/playwright-tree-diagram.svg" target="_blank" class="text-xs text-purple-400 hover:underline">Full SVG &rarr;</a>
+          </div>
+          <div class="bg-black/50 p-2 rounded-xl border border-slate-800 overflow-hidden">
+            <img src="assets/playwright-tree-diagram.svg" alt="Playwright MCP Accessibility Tree" class="w-full h-auto rounded-lg shadow-md hover:scale-[1.01] transition-transform" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Slash Commands Cheat Sheet -->
+    <section id="cheatsheet" class="glass p-6 md:p-8 rounded-2xl space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <span>⚡</span> Interactive Slash Commands Cheat Sheet
+          </h2>
+          <p class="text-slate-400 text-xs md:text-sm mt-1">Click any command to instantly copy it to your clipboard for your AI coding prompt.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="docs/slash-commands-cheatsheet.md" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700 transition">
+            View Markdown Docs &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Command 1 -->
+        <div onclick="copyCommand('/grill-with-docs', this)" class="bg-black/40 p-4 rounded-xl border border-slate-800 hover:border-amber-500/50 cursor-pointer transition group">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-sm font-bold text-amber-300 font-mono">/grill-with-docs</code>
+            <span class="text-xs text-slate-500 group-hover:text-amber-400">Copy 📋</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Interrogates you with senior-engineer questions to surface hidden assumptions and align domain taxonomy before writing code.
+          </p>
+          <div class="mt-3 flex items-center gap-1.5 text-[10px] text-amber-400/80 uppercase tracking-wider font-semibold">
+            <span>Phase: Scope Discovery</span>
+          </div>
+        </div>
+
+        <!-- Command 2 -->
+        <div onclick="copyCommand('/to-spec', this)" class="bg-black/40 p-4 rounded-xl border border-slate-800 hover:border-amber-500/50 cursor-pointer transition group">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-sm font-bold text-amber-300 font-mono">/to-spec</code>
+            <span class="text-xs text-slate-500 group-hover:text-amber-400">Copy 📋</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Translates interview answers into formal technical specifications, data models, acceptance criteria, and tracer-bullet tickets.
+          </p>
+          <div class="mt-3 flex items-center gap-1.5 text-[10px] text-amber-400/80 uppercase tracking-wider font-semibold">
+            <span>Phase: Technical Spec</span>
+          </div>
+        </div>
+
+        <!-- Command 3 -->
+        <div onclick="copyCommand('/tdd', this)" class="bg-black/40 p-4 rounded-xl border border-slate-800 hover:border-amber-500/50 cursor-pointer transition group">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-sm font-bold text-amber-300 font-mono">/tdd</code>
+            <span class="text-xs text-slate-500 group-hover:text-amber-400">Copy 📋</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Constructs failing unit and integration tests based on the spec. Enforces the strict Red-Green-Refactor safety rail.
+          </p>
+          <div class="mt-3 flex items-center gap-1.5 text-[10px] text-amber-400/80 uppercase tracking-wider font-semibold">
+            <span>Phase: Test-Driven Dev</span>
+          </div>
+        </div>
+
+        <!-- Command 4 -->
+        <div onclick="copyCommand('/implement', this)" class="bg-black/40 p-4 rounded-xl border border-slate-800 hover:border-amber-500/50 cursor-pointer transition group">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-sm font-bold text-amber-300 font-mono">/implement</code>
+            <span class="text-xs text-slate-500 group-hover:text-amber-400">Copy 📋</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Executes surgical, minimal code diffs that make the failing tests turn green without accidental bloat or scope creep.
+          </p>
+          <div class="mt-3 flex items-center gap-1.5 text-[10px] text-amber-400/80 uppercase tracking-wider font-semibold">
+            <span>Phase: Code Execution</span>
+          </div>
+        </div>
+
+        <!-- Command 5 -->
+        <div onclick="copyCommand('/wayfinder', this)" class="bg-black/40 p-4 rounded-xl border border-slate-800 hover:border-amber-500/50 cursor-pointer transition group">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-sm font-bold text-amber-300 font-mono">/wayfinder</code>
+            <span class="text-xs text-slate-500 group-hover:text-amber-400">Copy 📋</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Inspects codebase topologies, dependency graphs, and architectural boundaries to guide the agent across unfamiliar repos.
+          </p>
+          <div class="mt-3 flex items-center gap-1.5 text-[10px] text-amber-400/80 uppercase tracking-wider font-semibold">
+            <span>Phase: Architectural Map</span>
+          </div>
+        </div>
+
+        <!-- Command 6: Playwright QA Loop -->
+        <div onclick="copyCommand('npx @playwright/mcp@latest', this)" class="bg-black/40 p-4 rounded-xl border border-slate-800 hover:border-purple-500/50 cursor-pointer transition group">
+          <div class="flex items-center justify-between mb-2">
+            <code class="text-sm font-bold text-purple-300 font-mono">playwright_snapshot</code>
+            <span class="text-xs text-slate-500 group-hover:text-purple-400">Copy 📋</span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Captures the live ARIA accessibility tree to inspect DOM elements deterministically and trigger verified UI interactions.
+          </p>
+          <div class="mt-3 flex items-center gap-1.5 text-[10px] text-purple-400/80 uppercase tracking-wider font-semibold">
+            <span>Phase: Browser Verification</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MCP Client Configuration Reference with Tabs -->
+    <section id="mcp-config" class="glass p-6 md:p-8 rounded-2xl space-y-5">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <span>⚙️</span> Client MCP Configuration
+          </h2>
+          <p class="text-slate-400 text-xs md:text-sm mt-0.5">Plug both Context7 and Playwright MCP directly into your favorite AI client.</p>
+        </div>
+
+        <!-- Config Tabs -->
+        <div class="flex items-center bg-black/60 p-1 rounded-xl border border-slate-800 text-xs font-mono">
+          <button id="tab-root" onclick="switchConfig('root')" class="px-3 py-1.5 rounded-lg bg-slate-800 text-white font-semibold transition">.mcp.json</button>
+          <button id="tab-cursor" onclick="switchConfig('cursor')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">.cursor/mcp.json</button>
+          <button id="tab-claude" onclick="switchConfig('claude')" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">Claude Desktop</button>
+        </div>
+      </div>
+
+      <!-- Config Code Block -->
+      <div class="relative group">
+        <pre id="mcp-code" class="bg-black/70 p-5 rounded-xl border border-slate-800 text-xs text-slate-200 font-mono overflow-x-auto leading-relaxed shadow-inner">{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}</pre>
+        <button onclick="copyCurrentConfig()" class="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-mono text-cyan-300 transition flex items-center gap-1.5 shadow">
+          <span>Copy Config</span>
+          <span>📋</span>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2 text-xs text-slate-400">
+        <span class="text-cyan-400">💡 Tip:</span>
+        <span>Once configured, restart Cursor, Claude Code, or Windsurf to activate both MCP servers automatically.</span>
+      </div>
+    </section>
+
+    <!-- Matt Pocock Interview Spotlight Section -->
+    <section class="glass p-6 md:p-8 rounded-2xl flex flex-col md:flex-row items-center gap-6 border-l-4 border-l-amber-500">
+      <div class="text-4xl">📺</div>
+      <div class="space-y-2 flex-1">
+        <h3 class="text-xl font-bold text-white">Recommended Engineering Deep Dive</h3>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Watch Matt Pocock unpack the design and real-world execution of these slash-command flows inside coding agents in 
+          <a href="https://www.youtube.com/watch?v=4DhcSPkEbwI" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline font-semibold inline-flex items-center gap-1">
+            <span>AI Skills with Matt Pocock</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>.
+          Learn why skills like <code class="text-amber-200">/grill-me</code> prevent code decay and keep development tightly aligned with human intent.
+        </p>
+      </div>
+      <div>
+        <a href="https://www.youtube.com/watch?v=4DhcSPkEbwI" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition shadow-lg shadow-amber-500/20 inline-flex items-center gap-2">
+          <span>Watch Video</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-xs text-slate-500 py-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>
+        Built with ❤️ for modern AI engineers &bull; Hosted on <a href="https://rifaterdemsahin.github.io/AIToolkit/" class="text-cyan-400 hover:underline">GitHub Pages</a>
+      </p>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/rifaterdemsahin/AIToolkit" target="_blank" class="hover:text-slate-300 transition">Repository</a>
+        <a href="docs/context7.md" class="hover:text-slate-300 transition">Context7</a>
+        <a href="docs/playwright-mcp.md" class="hover:text-slate-300 transition">Playwright MCP</a>
+        <a href="docs/mattpocock-skills.md" class="hover:text-slate-300 transition">AI Skills</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive JavaScript logic -->
+  <script>
+    const configs = {
+      root: `{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}`,
+      cursor: `{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    }
+  }
+}`,
+      claude: `{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    }
+  }
+}`
+    };
+
+    let activeTab = 'root';
+
+    function switchConfig(tab) {
+      activeTab = tab;
+      const codeElement = document.getElementById('mcp-code');
+      codeElement.textContent = configs[tab];
+
+      const tabs = ['root', 'cursor', 'claude'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tab-' + t);
+        if (t === tab) {
+          btn.className = 'px-3 py-1.5 rounded-lg bg-slate-800 text-white font-semibold transition';
+        } else {
+          btn.className = 'px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition';
+        }
+      });
+    }
+
+    function copyCurrentConfig() {
+      const code = document.getElementById('mcp-code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        showToast('MCP configuration copied!');
+      });
+    }
+
+    function copyCommand(text, buttonElement) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`Copied: "${text}"`);
+        if (buttonElement) {
+          const original = buttonElement.innerHTML;
+          buttonElement.classList.add('ring-2', 'ring-emerald-400');
+          setTimeout(() => {
+            buttonElement.classList.remove('ring-2', 'ring-emerald-400');
+          }, 600);
+        }
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      toastText.textContent = message;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>

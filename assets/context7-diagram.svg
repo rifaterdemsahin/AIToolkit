@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgC7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a121d" />
+      <stop offset="100%" stop-color="#050a12" />
+    </linearGradient>
+  </defs>
+
+  <rect width="950" height="420" fill="url(#bgC7)" rx="16" />
+
+  <!-- Header -->
+  <text x="475" y="40" text-anchor="middle" fill="#34d399" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="2">CONTEXT7 DEEP DIVE</text>
+  <text x="475" y="72" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="24" font-weight="800">Eliminating Hallucinations with Grounded Docs</text>
+
+  <!-- Left: The Problem -->
+  <g transform="translate(40, 110)">
+    <rect width="410" height="270" rx="14" fill="#1f0f12" stroke="#ef4444" stroke-width="1.5" />
+    <text x="24" y="36" fill="#f87171" font-family="system-ui, sans-serif" font-size="15" font-weight="800">❌ Without Context7: Hallucinated APIs</text>
+    <line x1="24" y1="52" x2="386" y2="52" stroke="#7f1d1d" stroke-width="1" />
+    
+    <text x="24" y="80" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Agent queries internal training weights (dated cutoffs):</text>
+    
+    <rect x="24" y="98" width="362" height="60" rx="8" fill="#130709" stroke="#991b1b" stroke-width="1" />
+    <text x="36" y="122" fill="#fca5a5" font-family="ui-monospace, monospace" font-size="11">// Deprecated / Non-existent API</text>
+    <text x="36" y="142" fill="#ef4444" font-family="ui-monospace, monospace" font-size="11">import { useServerAction } from 'next/cache'; 💥</text>
+
+    <text x="24" y="184" fill="#f87171" font-family="system-ui, sans-serif" font-size="11.5">• Hallucinates arguments, signatures, and imports</text>
+    <text x="24" y="206" fill="#f87171" font-family="system-ui, sans-serif" font-size="11.5">• Developer wastes prompt cycles debugging phantom bugs</text>
+    <text x="24" y="228" fill="#f87171" font-family="system-ui, sans-serif" font-size="11.5">• Constant syntax errors and broken builds</text>
+    
+    <rect x="24" y="244" width="362" height="22" rx="4" fill="#7f1d1d" />
+    <text x="205" y="259" text-anchor="middle" fill="#fee2e2" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">RESULT: High friction &amp; prompt exhaustion</text>
+  </g>
+
+  <!-- Right: The Solution -->
+  <g transform="translate(490, 110)">
+    <rect width="420" height="270" rx="14" fill="#062018" stroke="#10b981" stroke-width="1.5" />
+    <text x="24" y="36" fill="#34d399" font-family="system-ui, sans-serif" font-size="15" font-weight="800">✅ With Context7 MCP: Live Grounded Docs</text>
+    <line x1="24" y1="52" x2="396" y2="52" stroke="#065f46" stroke-width="1" />
+
+    <text x="24" y="80" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12">Agent queries Upstash-indexed documentation dynamically:</text>
+
+    <rect x="24" y="98" width="372" height="60" rx="8" fill="#02140e" stroke="#047857" stroke-width="1" />
+    <text x="36" y="122" fill="#6ee7b7" font-family="ui-monospace, monospace" font-size="11">// Pinned, verified current v15 signature</text>
+    <text x="36" y="142" fill="#34d399" font-family="ui-monospace, monospace" font-size="11">import { revalidatePath } from 'next/cache'; ✨</text>
+
+    <text x="24" y="184" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11.5">• Ingests version-accurate types, hooks, &amp; options</text>
+    <text x="24" y="206" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11.5">• Directly indexes GitHub repos &amp; live docs via CLI</text>
+    <text x="24" y="228" fill="#a7f3d0" font-family="system-ui, sans-serif" font-size="11.5">• Agent writes 100% compliant code on the first attempt</text>
+
+    <rect x="24" y="244" width="372" height="22" rx="4" fill="#065f46" />
+    <text x="210" y="259" text-anchor="middle" fill="#d1fae5" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">RESULT: Deterministic, production-ready code</text>
+  </g>
+</svg>
